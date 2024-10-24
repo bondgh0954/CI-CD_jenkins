@@ -43,7 +43,7 @@ pipeline {
             steps{
                 script{
                     echo 'pushing image into private docker registry...'
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USER', passwordVariabe: 'PASS')]){
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USER', passwordVariable: 'PASS')]){
                         sh "echo ${PASS} | username -u ${USER} --password-stdin"
                         sh "docker push nanaot/java-app:${IMAGE_VERSION}"
                     }
