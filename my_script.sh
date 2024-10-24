@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
-docker-compose -f docker-compose.yaml up
+export IMAGE=$1
 
+docker-compose -f docker-compose.yaml up --detach
+
+echo sucess
