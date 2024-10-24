@@ -20,3 +20,6 @@
          -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion}versions:commit
 
 #### Build Application artifact
+ * Application is packaged into artifact and the target folder is created automatically 
+ * Because the application version will be dynamically increased any time a build is triggered the old artifact will be deleted
+      mvn clean package
