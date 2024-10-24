@@ -63,7 +63,7 @@ pipeline {
             steps{
                 script{
                     echo 'pushing updated app version into git repo.....'
-                    withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'USER', passwordVariabel: 'PASS')]){
+                    withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'USER', passwordVariable: 'PASS')]){
 
                         sh "git remote set-url origin https://${USER}:${PASS}@github.com/bondgh0954/CI-CD_jenkins.git "
                         sh 'git config --global user.name "jenkins"'
