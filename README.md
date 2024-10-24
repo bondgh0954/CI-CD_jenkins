@@ -32,3 +32,11 @@
 
         docker build -t nanaot/java-app:$IMAGE_VERSION
         docker push nanaot/java-app:$IMAGE_VERSION
+
+#### Deploy APP
+* Application is deployed on Amazon EC2 server
+* The key pair of the server is used to create credential in Jenkins
+* Docker composed file is created in the app with the application image and postgress container
+* A script to start the docker compose file is created
+* Both the docker compose file and script are coppied to the ec2 server from jenkins
+* 
