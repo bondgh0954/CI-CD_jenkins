@@ -5,6 +5,9 @@ pipeline {
     tools {
         maven 'maven'
     }
+    environment{
+        IMAGE = "nanaot/java-app:$IMAGE_VERSION"
+    }
 
     stages{
 
@@ -54,8 +57,10 @@ pipeline {
             steps{
                 script{
                     echo 'deploying application into AWS server.....'
-                    def dockerCmd = "docker run -d -p 8080:8080 nanaot/java-app:$IMAGE_VERSION"
+                    def dockerCmd = "bash ./my_script.sh $IMAGE"
                     sshagent(['key']) {
+                        sh 'scp docker-compose.yaml ec2-user@3.120.132.115:/home/ec2-user'
+                        sh 'scp my_script.sh ec2-user@3.120.132.115:/home/ec2-user'
                         sh "ssh -o StrictHostKeyChecking=no ec2-user@3.120.132.115 ${dockerCmd}"
     
                     }

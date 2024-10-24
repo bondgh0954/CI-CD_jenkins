@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    ports:
+     - 5432:5432
+    environment:
+     - POSTGRESS_PASSWORD=my_pass
+  my_app:
+    image: ${}
+    ports:
+     - 8080:8080
