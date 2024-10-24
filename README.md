@@ -24,3 +24,11 @@
  * Because the application version will be dynamically increased any time a build is triggered the old artifact will be deleted
    
               mvn clean package
+#### Build Image
+* application is build into docker image with its dependencies from the Dockerfile and push into a private docker registry
+* Jenkins needs authentication before it can push the image into the registry so github credentials is created in Jenkins and
+* used in the pipeline to give jenkins permission to push the image into the registry
+* The incremented version is used as image tag
+
+        docker build -t nanaot/java-app:$IMAGE_VERSION
+        docker push nanaot/java-app:$IMAGE_VERSION
