@@ -6,7 +6,9 @@
 * GIT
 ## Project Description
 * Configure web server on digitalOcean with appropriate firewall configuration
-* Deploy Jenkins container on the server
+* Install docker on the server and Deploy Jenkins container on the server
+  
+          docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
 ## Add Dockerfile to application to create docker image from the app
 
 ## Create a multibranch pipeline for the application
