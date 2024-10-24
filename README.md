@@ -12,11 +12,11 @@
 ## Create a multibranch pipeline for the application
 ### Jenkinsfile contains the following steps
 #### Application version increment
-    * Application patch version in the pom.xml file is dynamically incremented using mvn build-heper
-    * The incremented version is read using readFile
-    * Incremented version is saved as environmental variable with the build number
+* Application patch version in the pom.xml file is dynamically incremented using mvn build-heper
+* The incremented version is read using readFile
+* Incremented version is saved as environmental variable with the build number
             
-                    mvn build-helper:parse-version versions:set \
-                       -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion}versions:commit
+          mvn build-helper:parse-version versions:set \
+         -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion}versions:commit
 
 #### Build Application artifact
