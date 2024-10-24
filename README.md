@@ -10,5 +10,13 @@
 ## Add Dockerfile to application to create docker image from the app
 
 ## Create a multibranch pipeline for the application
-* Add Jenkins file to the application
-* Crate a pipeline
+### Jenkinsfile contains the following steps
+#### Application version increment
+    * Application patch version in the pom.xml file is dynamically incremented using mvn build-heper
+    * The incremented version is read using readFile
+    * Incremented version is saved as environmental variable with the build number
+            
+                    mvn build-helper:parse-version versions:set \
+                       -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion}versions:commit
+
+#### Build Application artifact
