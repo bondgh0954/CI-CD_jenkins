@@ -42,4 +42,5 @@
 * A script to start the docker compose file is created
 * Both the docker compose file and script are coppied to the ec2 server from jenkins
 * ssh into the ec2 instance and start the docker compose file
+  
           ssh -o StrickHostKeyChecking=0 ec2-user@publicIP
